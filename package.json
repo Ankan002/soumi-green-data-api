@@ -1,0 +1,9 @@
+{
+  "name": "green-data-api",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/Ankan002/soumi-green-data-api.git",
+  "author": "Soumi Choudhury",
+  "license": "MIT",
+  "type": "module"
+}
