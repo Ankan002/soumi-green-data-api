@@ -1,10 +1,13 @@
 import express from "express";
 import cors from "cors";
 import { morganConfig } from "./middlewares/morgan/morgan.js";
+import { connectToDb } from "./config/connect-to-db.js";
 
 export const startServer = () => {
 	const app = express();
 	const PORT = process.env["PORT"];
+
+	connectToDb();
 
 	app.use(express.json());
 	app.use(cors());
