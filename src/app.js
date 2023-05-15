@@ -2,6 +2,7 @@ import express from "express";
 import cors from "cors";
 import { morganConfig } from "./middlewares/morgan/morgan.js";
 import { connectToDb } from "./config/connect-to-db.js";
+import { authRouter } from "./routes/auth-router.js";
 
 export const startServer = () => {
 	const app = express();
@@ -19,6 +20,8 @@ export const startServer = () => {
 			message: "Welcome to Green Data API",
 		});
 	});
+
+	app.use("/api/auth", authRouter);
 
 	app.listen(PORT, () => console.log(`App is running at ${PORT}`));
 };
