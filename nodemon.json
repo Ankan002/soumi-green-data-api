@@ -7,5 +7,5 @@
     "ignore": [
         "src/**/*.{spec,test}.ts"
     ],
-    "exec": "nodemon src/index.js"
+    "exec": "node src/index.js"
 }
