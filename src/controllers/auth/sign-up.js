@@ -2,7 +2,6 @@ import { z } from "zod";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 import { User } from "../../models/user.js";
-import mongoose from "mongoose";
 
 const RequestBodySchema = z.object({
 	name: z.string().min(3, "Name should have at least 3 characters").max(60, "Name should have at most 60 characters"),
