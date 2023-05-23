@@ -35,8 +35,10 @@ export const signUp = async (req, res) => {
 		});
 
 		const user = {
-			id: newUser.id,
-			email: newUser.email,
+			user: {
+				id: newUser.id,
+				email: newUser.email,
+			},
 		};
 
 		const token = jwt.sign(user, process.env["SECRET"] ?? "");
@@ -48,12 +50,12 @@ export const signUp = async (req, res) => {
 		if (error instanceof Error) {
 			console.log(error.message);
 
-            if (error.name === "MongoServerError" && error.code === 11000) {
-                return res.status(400).json({
-                    success: false,
-                    error: "An user with same email already exists",
-                });
-            }
+			if (error.name === "MongoServerError" && error.code === 11000) {
+				return res.status(400).json({
+					success: false,
+					error: "An user with same email already exists",
+				});
+			}
 
 			return res.status(400).json({
 				success: false,
