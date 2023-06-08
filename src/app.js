@@ -3,6 +3,7 @@ import cors from "cors";
 import { morganConfig } from "./middlewares/morgan/morgan.js";
 import { connectToDb } from "./config/connect-to-db.js";
 import { authRouter } from "./routes/auth-router.js";
+import { userRouter } from "./routes/user-router.js";
 
 export const startServer = () => {
 	const app = express();
@@ -22,6 +23,7 @@ export const startServer = () => {
 	});
 
 	app.use("/api/auth", authRouter);
+	app.use("/api/user", userRouter);
 
 	app.listen(PORT, () => console.log(`App is running at ${PORT}`));
 };
